@@ -27,6 +27,8 @@ tr:nth-child(odd){background-color: PeachPuff;}
   margin: auto;
 }
 
-form, br{
+.form-input {
+  margin-bottom: 15px;
   border: 1px solid black;
+  padding: 15px;
 }

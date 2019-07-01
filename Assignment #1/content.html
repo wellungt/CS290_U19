@@ -7,7 +7,7 @@
 
 <body>
 
-<p align="center">Floral Profile </p>
+<h3 align="center">Florals Profile: Each rows for a floral </h3>
 
 <table>
   <tr>
@@ -87,10 +87,34 @@
 </div>
 
 <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="get">
-  Text here: <input type="text" name="textHere"><br>
-  Number here: <input type="text" name="numberHere"><br>
-  Password here: <input type="text" name="passwordHere"><br>
-  <input type="submit" value="Submit">
+  <fieldset>
+    <legend> some GET data </legend>
+      <div class="form-input">Text here: <input type="text" name="textHere"></div>
+      <div class="form-input">Number here: <input type="text" name="numberHere"></div>
+      <div class="form-input">Password here: <input type="text" name="passwordHere"></div>
+      <div class="form-input">
+        <p>Select between:</p>
+        <input type="radio" name="candy" value="Snickers" > Snickers <br>
+        <input type="radio" name="candy" value="Skittles"> Skittles<br>
+        <input type="radio" name="candy" value="Mentos"> Mentos <br>
+        <input type="submit" value="Submit">
+      </div>
+  </fieldset>
+</form>
+<form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post">
+  <fieldset>
+    <legend> some POST data </legend>
+      <div class="form-input">Text here: <input type="text" name="textHere"></div>
+      <div class="form-input">Number here: <input type="text" name="numberHere"></div>
+      <div class="form-input">Password here: <input type="text" name="passwordHere"></div>
+      <div class="form-input">
+        <p>Select between:</p>
+        <input type="radio" name="candy" value="Snickers" > Snickers <br>
+        <input type="radio" name="candy" value="Skittles"> Skittles<br>
+        <input type="radio" name="candy" value="Mentos"> Mentos <br>
+        <input type="submit" value="Submit">
+      </div>
+  </fieldset>
 </form>
 
 </body>
