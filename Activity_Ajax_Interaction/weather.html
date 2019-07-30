@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var apiKey = '2c3fd0258683bbac6e9e5ec19c15f9ed';
+
+      document.addEventListener('DOMContentLoaded', bindButtons);
+
+      function bindButtons(){
+        document.getElementById('areaSubmit').addEventListener('click', function(event){
+          var req = new XMLHttpRequest();
+          req.open('GET', "http://api.openweathermap.org/data/2.5/weather?q="+q.value+"&appid="+apiKey, false);
+          req.send(null);
+          var response = JSON.parse(req.responseText);
+          var oriTemp = parseFloat(response.main.temp);
+          var tempF = (oriTemp-273.15)*(9.0/5.0)+32.0;
+          document.getElementById("temperature").innerHTML = Math.round(tempF) + " F";
+          event.preventDefault();
+        });
+        document.getElementById("pSubmit").addEventListener("click", function(event){
+          var req = new XMLHttpRequest();
+          var payload = {p:null};
+          payload.p = document.getElementById('p').value;
+          req.open("POST", "https://httpbin.org/post",false);
+          req.setRequestHeader('Content-Type', 'application/json');
+
+          event.preventDefault();
+          req.send(JSON.stringify(payload));
+          var response = JSON.parse(req.responseText);
+          document.write(document.getElementById("p").value);
+        });
+      }
+    </script>
+
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Check the Weather</legend>
+        <label for="q">Zip code or City</label>
+        <input type="text" name="q" id="q">
+        <input type="submit" id="areaSubmit">
+      </fieldset>
+    </form>
+    <h3>Temperature: </h3>
+    <p id="temperature"></p>
+    <form>
+      <fieldset>
+        <legend>POST to  http://httpbin.org </legend>
+        <label for="p">Enter text </label>
+        <input type="text" name="p" id="p">
+        <input type="submit" id="pSubmit">
+      </fieldset>
+    </form>
+  </body>
+</html>
